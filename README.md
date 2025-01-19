@@ -81,6 +81,7 @@ Contributions are welcome! Feel free to open issues or submit pull requests for 
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+Copyright (c) 2025 Pedram Aliniaye Asli.
 
 ## Author
 
