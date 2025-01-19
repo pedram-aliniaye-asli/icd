@@ -84,4 +84,4 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Author
 
-[Pedram](https://github.com/pedram-aliniaye-asli)
+[Pedram Aliniaye Asli](https://github.com/pedram-aliniaye-asli)
