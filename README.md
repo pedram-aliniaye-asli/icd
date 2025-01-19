@@ -60,7 +60,7 @@ This installation script will:
   - **Enter**: Confirm the directory selection and exit the navigator.
 
 - **Exiting**:
-  - **Ctrl+C**: Exit the navigator gracefully with a custom message.
+  - **Ctrl+C**: Exit the navigator gracefully.
 
 ## Example
 
