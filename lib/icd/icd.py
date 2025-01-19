@@ -113,8 +113,7 @@ def check_input(key_input, address, depth_point, current_loc = '.'):
             depth_point += 1
     if key_input == 'Enter': # Enter a directory
         final_result = change_directory(address, current_loc, dirs_list, depth_point)
-    elif key_input == 'XXXXXXX':
-        pass
+
     working_add = address
     return (dirs_list, current_loc, depth_point, final_result)
 
