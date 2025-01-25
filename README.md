@@ -5,7 +5,7 @@
 ## Features
 - **Interactive Navigation**: Use arrow keys to navigate up, down, left, and right through directories.
 - **Visual Feedback**: The current directory is highlighted, and long directory paths are truncated for a cleaner display.
-- **Signal Handling**: Gracefully handle interruptions like `Ctrl+C` with custom exit messages.
+- **Signal Handling**: Manage the Ctrl+C interruption to prevent abrupt termination.
 - **Automatic Directory Change**: Upon selecting a directory, `icd` changes to the chosen directory.
 - **Absolute Path Input:** Start the navigator from a specific absolute path by passing it as an argument. If no argument is provided, the navigator starts from the current working directory.
 ## Installation
