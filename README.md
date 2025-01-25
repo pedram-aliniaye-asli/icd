@@ -72,6 +72,7 @@ This installation script will:
 ## Example
 
 - **Starting from the Current Directory**:
+  
    ```bash
    $ icd
    /home/user/[projects]
@@ -79,8 +80,10 @@ This installation script will:
    [*] project2
    [ ] project3
    ```
-Navigate to `project2` by pressing the down arrow and hit `Enter`. Your working directory will change to `/home/user/projects/project2`.
+   Navigate to `project2` by pressing the down arrow and hit `Enter`. Your working directory will change to `/home/user/projects/project2`.
+  
 - **Starting from a Specific Path**:
+  
    ```bash
    $ icd /home/user/documents
    /home/user/documents
@@ -88,7 +91,7 @@ Navigate to `project2` by pressing the down arrow and hit `Enter`. Your working 
    [*] drafts
    [ ] invoices
    ```
-Navigate to `drafts` by pressing the down arrow and hit `Enter`. Your working directory will change to `/home/user/documents/drafts`.
+   Navigate to `drafts` by pressing the down arrow and hit `Enter`. Your working directory will change to `/home/user/documents/drafts`.
 
 ## Contributing
 
