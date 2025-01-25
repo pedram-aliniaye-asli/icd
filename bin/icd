@@ -14,9 +14,9 @@
 #!/bin/bash
 
 if [ -z "$1" ]; then
-    output=$(python3 ver.py | tee /dev/tty)
+    output=$(python3 icd.py | tee /dev/tty)
 else
-    output=$(python3 ver.py "$1" | tee /dev/tty)
+    output=$(python3 icd.py "$1" | tee /dev/tty)
 fi
 
 
