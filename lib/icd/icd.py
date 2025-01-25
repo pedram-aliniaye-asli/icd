@@ -36,9 +36,8 @@ def get_dir_list(address, dir_index):
     return dirs
 
 # Function to print the current working directory in a user-friendly format
-def print_working_directory():
-    current_dir = os.getcwd()
-    print(current_dir[:current_dir.find(os.path.basename(current_dir))] + f'[{os.path.basename(current_dir)}]', end="", flush=True)
+def print_working_directory(address):
+    print(address[:address.find(os.path.basename(address))] + f'[{os.path.basename(address)}]', end="", flush=True)
 
 # Function to read a single key press from the user (without blocking program)
 def get_key():
@@ -113,7 +112,8 @@ def check_input(key_input, address, depth_point, current_loc_index):
     if key_input == 'Enter': # Enter a directory
         final_result = change_directory(address, current_loc_index, dirs_list, depth_point)
     working_add = address
-    return (dirs_list, current_loc_index, depth_point, final_result)
+    result = {'dirs_list':dirs_list, 'current_loc_index':current_loc_index, 'depth_point':depth_point, 'final_result':final_result}
+    return result
 
 # Function to print the current directory path with visual indicators
 def print_path_string(address,current_dir_index, next_list, depth_point, input_list):
@@ -157,21 +157,25 @@ working_add = [] # Store the current working directory
 
 # Main function to start the directory navigation
 def main():
-    print_working_directory() # Display the initial working directory
     global working_add
-    working_add = os.getcwd().split('/') # Convert the current working directory into a list of folders
-    current_dir = os.path.basename(os.getcwd()) # Get the name of the current directory
+    if len(sys.argv) > 1 and os.path.isdir(sys.argv[1]):
+        working_add = sys.argv[1].rstrip('/')
+    else:
+        working_add = os.getcwd()
+    print_working_directory(working_add) # Display the initial working directory
+    current_dir = os.path.basename(working_add) # Get the name of the current directory
+    working_add = working_add.split('/') # Convert the current working directory into a list of folders
     current_dir_index = working_add.index(current_dir)
     global lines_to_delete
     depth_point = 0 # Start at the top of the directory list
     while True:
         key_input = wait_for_key_presses() # Wait for user input
         dirs = check_input(key_input, working_add, depth_point, current_dir_index) # Process the input
-        if dirs[3]: # If a new directory is selected, change to it
-            print(dirs[3])
+        if dirs['final_result']: # If a new directory is selected, change to it
+            print(dirs['final_result'])
             break
-        print_path_string(working_add, dirs[1], dirs[0], dirs[2], lines_to_delete) # Update the path display
-        depth_point = dirs[2] # Update the depth point
-        current_dir_index = dirs[1] # Update the current directory index
+        print_path_string(working_add, dirs['current_loc_index'], dirs['dirs_list'], dirs['depth_point'], lines_to_delete) # Update the path display
+        depth_point = dirs['depth_point'] # Update the depth point
+        current_dir_index = dirs['current_loc_index'] # Update the current directory index
 if __name__ == "__main__":
     main()
