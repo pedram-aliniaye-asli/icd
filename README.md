@@ -7,7 +7,7 @@
 - **Visual Feedback**: The current directory is highlighted, and long directory paths are truncated for a cleaner display.
 - **Signal Handling**: Gracefully handle interruptions like `Ctrl+C` with custom exit messages.
 - **Automatic Directory Change**: Upon selecting a directory, `icd` changes to the chosen directory.
-
+- **Absolute Path Input:** Start the navigator from a specific absolute path by passing it as an argument. If no argument is provided, the navigator starts from the current working directory.
 ## Installation
 
 Follow the steps below to install the `icd` command on your system:
@@ -61,9 +61,17 @@ This installation script will:
 
 - **Exiting**:
   - **Ctrl+C**: Exit the navigator gracefully.
+- **Absolute Path**:
 
+   To start the navigator from a specific directory, pass the absolute path as an argument:
+   ```
+   icd /path/to/directory
+   ```
+   If no argument is provided, the navigator defaults to the current working directory.
+  
 ## Example
 
+- **Starting from the Current Directory**:
 ```bash
 $ icd
 /home/user/[projects]
@@ -71,8 +79,16 @@ $ icd
 [*] project2
 [ ] project3
 ```
-
 Navigate to `project2` by pressing the down arrow and hit `Enter`. Your working directory will change to `/home/user/projects/project2`.
+- **Starting from a Specific Path**:
+```bash
+$ icd /home/user/documents
+/home/user/documents
+[ ] reports
+[*] drafts
+[ ] invoices
+```
+Navigate to `drafts` by pressing the down arrow and hit `Enter`. Your working directory will change to `/home/user/documents/drafts`.
 
 ## Contributing
 
