@@ -72,22 +72,22 @@ This installation script will:
 ## Example
 
 - **Starting from the Current Directory**:
-```bash
-$ icd
-/home/user/[projects]
-[ ] project1
-[*] project2
-[ ] project3
-```
+   ```bash
+   $ icd
+   /home/user/[projects]
+   [ ] project1
+   [*] project2
+   [ ] project3
+   ```
 Navigate to `project2` by pressing the down arrow and hit `Enter`. Your working directory will change to `/home/user/projects/project2`.
 - **Starting from a Specific Path**:
-```bash
-$ icd /home/user/documents
-/home/user/documents
-[ ] reports
-[*] drafts
-[ ] invoices
-```
+   ```bash
+   $ icd /home/user/documents
+   /home/user/documents
+   [ ] reports
+   [*] drafts
+   [ ] invoices
+   ```
 Navigate to `drafts` by pressing the down arrow and hit `Enter`. Your working directory will change to `/home/user/documents/drafts`.
 
 ## Contributing
