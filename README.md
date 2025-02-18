@@ -61,14 +61,26 @@ This installation script will:
 
 - **Exiting**:
   - **Ctrl+C**: Exit the navigator gracefully.
+    
 - **Absolute Path**:
-
    To start the navigator from a specific directory, pass the absolute path as an argument:
    ```
    icd /path/to/directory
    ```
    If no argument is provided, the navigator defaults to the current working directory.
-  
+
+- **Bookmarks**
+   - **Saving Bookmarks**
+       You can now save your current directory as a bookmark for easy future access. The bookmarks are stored in a JSON file for easy management and retrieval.
+
+     ```Ctrl + D```
+       Save the current directory as a bookmark. You'll be prompted to enter a name for the bookmark.
+
+   - **Loading Bookmarks**
+        Quickly navigate to a saved directory bookmark. The saved bookmarks can be accessed from the JSON file.
+
+     ```Ctrl + B```
+        Load a saved bookmark. You will be asked to enter the name of the bookmark you wish to load.
 ## Example
 
 - **Starting from the Current Directory**:
