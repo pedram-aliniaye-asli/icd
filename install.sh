@@ -18,10 +18,10 @@ set -e
 
 # Variables
 BASH_SCRIPT="bin/icd"
-PYTHON_SCRIPT="lib/icd/icd.py"
+PYTHON_SCRIPT_DIR="lib/icd"
 COMMAND_NAME="icd"
 BASH_SCRIPT_DEST="/usr/local/bin/icd"
-PYTHON_SCRIPT_DEST="/usr/local/lib/icd/icd.py"
+PYTHON_SCRIPT_DEST="/usr/local/lib/icd"
 ALIAS_COMMAND="alias $COMMAND_NAME='source $BASH_SCRIPT_DEST'"
 
 # Check if the BASH_SCRIPT file exists
@@ -30,12 +30,14 @@ if [[ ! -f "$BASH_SCRIPT" ]]; then
     exit 1
 fi
 
-# Check if the PYTHON_SCRIPT file exists
-if [[ ! -f "$PYTHON_SCRIPT" ]]; then
-    echo "Error: $PYTHON_SCRIPT not found."
+# Check if the Python script directory exists
+if [[ ! -d "$PYTHON_SCRIPT_DIR" ]]; then
+    echo "Error: $PYTHON_SCRIPT_DIR not found."
     exit 1
 fi
+
 sudo -v 
+
 # Copy the bash script to /usr/local/bin and make it executable
 echo "Copying bash script..."
 if ! sudo cp "$BASH_SCRIPT" "$BASH_SCRIPT_DEST"; then
@@ -44,11 +46,26 @@ if ! sudo cp "$BASH_SCRIPT" "$BASH_SCRIPT_DEST"; then
 fi
 sudo chmod +x "$BASH_SCRIPT_DEST"
 
-# Copy the Python script to /usr/local/lib and create the directory if needed
-echo "Copying Python script..."
-if ! sudo mkdir -p /usr/local/lib/icd/ || ! sudo cp "$PYTHON_SCRIPT" "$PYTHON_SCRIPT_DEST"; then
-    echo "Error: Failed to copy $PYTHON_SCRIPT to $PYTHON_SCRIPT_DEST."
+# Copy all Python scripts to /usr/local/lib/icd and create the directory if needed
+echo "Copying Python scripts..."
+if ! sudo mkdir -p "$PYTHON_SCRIPT_DEST" || ! sudo cp "$PYTHON_SCRIPT_DIR"/*.py "$PYTHON_SCRIPT_DEST/"; then
+    echo "Error: Failed to copy Python scripts to $PYTHON_SCRIPT_DEST."
     exit 1
+fi
+
+# Create the bookmarks directory and JSON file for the user
+BOOKMARKS_DIR="$HOME/.local/share/icd"
+BOOKMARKS_FILE="$BOOKMARKS_DIR/bookmarks.json"
+
+echo "Creating bookmarks directory..."
+mkdir -p "$BOOKMARKS_DIR"
+
+# Ensure the JSON file exists
+if [ ! -f "$BOOKMARKS_FILE" ]; then
+    echo "{}" > "$BOOKMARKS_FILE"
+    echo "Created Bookmark file for your bookmarks!"
+else
+    echo "Bookmarks file already exists!"
 fi
 
 # Add the alias to the shell configuration file if it doesn't exist
