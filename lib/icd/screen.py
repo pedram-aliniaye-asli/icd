@@ -14,7 +14,7 @@
 import shutil
 import shared_info
 
-
+# Function to print a message to the console with a specified ending, while tracking the number of printed lines.
 def print_output(msg, ending=""):
     # line_count = msg.count('\n')
     # if ending == '\n':
