@@ -17,8 +17,8 @@ import screen
 
 BOOKMARK_FILE = os.path.join(os.path.expanduser("~"), ".local", "share", "icd", "bookmarks.json")
 
+# Function to save a directory path with a user-given name.
 def save_bookmark(directory):
-    """Saves a directory path with a user-given name, handling terminal mode issues."""
     name = input("\n Enter a name for the bookmark: ").strip()
     if not name:
         screen.print_output("Bookmark name cannot be empty.")
@@ -40,8 +40,8 @@ def save_bookmark(directory):
 
     screen.print_output(f"Bookmark '{name}' saved.")
 
+# Function to load a directory path using a user-given name.
 def load_bookmark():
-    """Loads a directory path using a user-given name."""
     screen.print_output("\n Enter the bookmark name to load: ")
     name = input().strip()
 
