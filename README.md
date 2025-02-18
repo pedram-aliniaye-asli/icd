@@ -45,10 +45,10 @@ Follow the steps below to install the `icd` command on your system:
 
 This installation script will:
 - Copy the bash script to `/usr/local/bin` and make it executable.
-- Copy the Python script to `/usr/local/lib/icd/`.
+- Copy all Python scripts `/usr/local/lib/icd/`.
+- Create a bookmarks directory (`~/.local/share/icd`) and initialize a `bookmarks.json` file if it doesn't exist.
 - Add an alias for `icd` to your `.bashrc` file.
 - Reload your shell configuration.
-
 
 ## Usage
 
