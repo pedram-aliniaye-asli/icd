@@ -26,7 +26,7 @@ def main():
         dirs = utils.check_input(key_input, utils.load_dir_data('working_address'), utils.load_dir_data('depth_point'), utils.load_dir_data('current_dir_index')) # Process the input
         utils.save_dir_data(working_address = dirs['working_address'])
         if dirs['final_result']: # If a new directory is selected, change to it
-            print(f'\n{dirs['final_result']}', end='\n')
+            print(f"\n{dirs['final_result']}", end='\n')
             break
         screen.print_path_string(dirs['working_address'], dirs['current_loc_index'], dirs['dirs_list'], dirs['depth_point']) # Update the path display
         utils.save_dir_data(current_dir_index=dirs['current_loc_index'])
